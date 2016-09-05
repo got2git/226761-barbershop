@@ -2,13 +2,15 @@
 <html lang="ru">
     <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=cyrillic">
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Прайс-лист</title>
     </head>
-    <body>
+    <body class="secondary">
           
           <header class="main-header">
-            <div class="container">
+            <div class="container clearfix">
                 <nav class="main-navigation">
                     <div class="header-logo">
                         <a href="index.html"><img src="img/logo-header.png" width="111" height="24" alt="Барбершоп «Бородинский»"></a>
@@ -21,7 +23,7 @@
                             <a href="#">Новости</a>
                         </li>
                         <li>
-                            <a href="price.html">Прайс-лист</a>
+                            <a class="active" href="price.html">Прайс-лист</a>
                         </li>
                         <li>
                             <a href="catalog.html">Магазин</a>
@@ -41,7 +43,7 @@
               <h2 class="page-title">Прайс-лист</h2>
               <div class="breadcrumbs">
                   <a href="#">Главная</a>
-                  <a href="#">Прайс-лист</a>
+                  <a class="breadcrumbs-last">Прайс-лист</a>
               </div>
               <div class="slogan">
                   <h2>Истинно мужская классика</h2>
@@ -49,7 +51,7 @@
               <div class="products-and-price clearfix">
                   <section class="products left-side">
                       <h2>Мы используем только<br> лучшие средства:</h2>
-                      <ul class="item-set-content">
+                      <ul class="item-set-content price-page">
                           <li>Baxter of Californa</li>
                           <li>Mr Natty</li>
                           <li>Suavecito</li>
@@ -61,15 +63,15 @@
                       <table class="price-list-table">
                           <tr>
                               <td>Стрижка</td>
-                              <td>1500 руб.</td>
+                              <td class="table-price">1500 руб.</td>
                           </tr>
                           <tr>
                               <td>Стрижка бороды</td>
-                              <td>500 руб.</td>
+                              <td class="table-price">500 руб.</td>
                           </tr>
                           <tr>
                               <td>Накрутка усов</td>
-                              <td>350 руб.</td>
+                              <td class="table-price">350 руб.</td>
                           </tr>
                       </table>
                   </section>
@@ -81,8 +83,8 @@
               </section>
           </main>
         
-          <footer class="main-footer">
-              <div class="container">
+          <footer class="main-footer secondary">
+              <div class="container clearfix">
                   <section class="footer-contacts">
                       Барбершоп «Бородинский»<br>
                       Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
