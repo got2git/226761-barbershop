@@ -15,13 +15,6 @@ body.secondary {
     background: #fbf8f5 url("../img/bg-light-pattern.png");
 }
 
-footer.secondary {
-    color: #fff;
-    background:
-        url("../img/bg-footer-shadow.png") repeat-x,
-        url("../img/bg-footer-pattern.png");
-}
-
 .container {
     width: 940px;
     margin: 0 auto;
@@ -52,6 +45,7 @@ footer.secondary {
 }
 
 .main-navigation ul li {
+    position: relative;
     display: inline-block;
     font-size: 16px;
     line-height: 20px;
@@ -61,17 +55,45 @@ footer.secondary {
 .main-navigation a {
     display: block;
     position: relative;
+    padding: 26px 22px;
     color: #fff;
     text-decoration: none;
-    padding: 26px 22px;
     transition: background ease-out 0.2s;
 }
 
+/*Подчеркивание, вар. 1. Начало*/
+
 .main-navigation .active::after {
     position: absolute;
+    content: "";
+    left: 22px;
+    right: 22px;
+    bottom: 0;
+    height: 5px;
+    background: #fff;
+    transition: background ease-out 0.2s;
+}
+
+.main-navigation .active:hover {
+    cursor: default;
+}
+
+.main-navigation .active:hover::after {
+    background: none;
+}
+
+/*Подчеркивание, вар. 1. Конец*/
+
+/*
+
+
+Подчеркивание, вар. 2 (тень). Начало
+
+.main-navigation .active::after {
+    position: absolute;
+    content: "";
     bottom: 38px;
     left: 0;
-    content: "";
     width: 100%;
     height: 50px;
     background: transparent;
@@ -79,35 +101,40 @@ footer.secondary {
     transition: box-shadow ease-out 0.2s;
 }
 
+.main-navigation .active:hover {
+    cursor: default;
+}
+
 .main-navigation .active:hover::after,
 .main-navigation .active:active::after {
     box-shadow: 0 60px 0 -22px transparent;
 }
+
+Подчеркивание, вар. 2 (тень). Конец
+
+*/
+
 
 .main-navigation a:hover,
 .main-navigation a:focus {
     background: #242424;
 }
 
-.header-logo {
-    height: 72px;
+a.header-logo {
     float: left;
+    width: 111px;
+    height: 24px;
+    padding: 24px 22px;
 }
 
-.header-logo a:hover,
-.header-logo a:focus {
+a.header-logo:hover,
+a.header-logo:focus {
     background: #000;
 }
 
-.header-logo a {
-    box-sizing: border-box;
-    height: 100%;
-    padding: 24px 22px 26px;
-}
-
-.header-logo img {
-    max-width: 100%;
+a.header-logo img {
     width: 100%;
+    height: auto;
 }
 
 .user-block {
@@ -332,21 +359,24 @@ footer.secondary {
     width: 100%;
 }
 
-.main-footer {
+footer {
     margin-top: 65px;
     padding: 60px 0 40px;
-    background: url("../img/bg-footer-pattern.png");
+    color: #fff;
+    background:
+        url("../img/bg-footer-shadow.png") repeat-x,
+        url("../img/bg-footer-pattern.png");
 }
 
-.main-footer a {
+footer a {
     color: inherit;
 }
 
-.main-footer a:hover {
+footer a:hover {
     text-decoration: none;
 }
 
-.main-footer p {
+footer p {
     margin: 0 0 18px;
 }
 
@@ -375,6 +405,7 @@ footer.secondary {
     left: 50%;
     transform: translate(-50%, -50%);
     background: url("../img/sprite.png") no-repeat;
+    transition: background-position ease-out 0.2s;
 }
 
 .social-btn-vk::before {
@@ -440,21 +471,26 @@ footer.secondary {
     background: #fff;
 }
 
-.page-title {
+.secondary .main-header {
+    margin: 0 0 55px;
+}
+
+h2.page-title,
+.price-page h2.page-title {
     margin: 0 0 20px;
     font-size: 30px;
     line-height: 42px;
 }
-
+ 
 .breadcrumbs {
     font-size: 0;
     margin: 0 0 55px;
 }
 
 .breadcrumbs a {
-    display: inline-block;
+    display: inline;
     position: relative;
-    padding: 0 18px 0 25px;
+    padding: 0 40px 0 0;
     font-size: 14px;
     font-weight: bold;
     line-height: 20px;
@@ -463,28 +499,24 @@ footer.secondary {
     vertical-align: top;
 }
 
-.breadcrumbs a:before {
+.breadcrumbs a:after {
     content: "";
     position: absolute;
-    left: 0;
-    top: 5px;
+    right: 16px;
+    top: 4px;
     height: 8px;
     width: 8px;
     background: #000;
     transform: rotate(45deg);
 }
 
-.breadcrumbs a:first-child {
-    padding: 0 18px 0 0;
-}
-
-.breadcrumbs a:first-child:before {
-    background: transparent;
-}
-
 a.breadcrumbs-last  {
     color: #aba9a7;
     cursor: default;
+}
+
+a.breadcrumbs-last::after {
+    display: none;
 }
 
 .filter {
@@ -604,6 +636,7 @@ a.breadcrumbs-last  {
 .catalog-item-details {
     padding: 16px;
     font-size: 0;
+    background: #fff;
 }
 
 .catalog-items h3 {
@@ -750,13 +783,15 @@ a.breadcrumbs-last  {
 }
 
 .item-set-content {
-    margin: 0;
+    margin: 14px 0;
     padding: 0;
     list-style: none;
 }
 
 .item-set-content li {
     position: relative;
+    line-height: 22px;
+    margin: 0 0 5px;
     padding: 0 0 0 20px;
 }
 
@@ -771,6 +806,15 @@ a.breadcrumbs-last  {
     transform: rotate(45deg);
 }
 
+.price-page h2 {
+    margin: 60px 0 30px;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+/*Большой заголовок, вар. 1. Начало*/
+
+/*
 .slogan {
     position: relative;
     margin: 0 0 60px;
@@ -796,14 +840,79 @@ a.breadcrumbs-last  {
     line-height: 48px;
     z-index: 1;
 }
+*/
 
-.products,
-.about-us p.left-side {
-    width: 380px;
+/*Большой заголовок, вар. 1. Конец*/
+
+
+/*Большой заголовок, вар. 2 (флексбокс). Начало*/
+
+.slogan h2 {
+    display: flex;
+    align-items: center;
+    font-size: 48px;
+    line-height: 48px;
 }
 
-.price-list,
-.about-us p.right-side{
+.slogan h2::before,
+.slogan h2::after {
+    content: "";
+    flex-grow: 1;
+    width: 1px;
+    height: 2px;
+    background: #000;
+}
+
+.slogan h2::before {
+    margin-right:  25px;
+}
+
+.slogan h2::after {
+    margin-left: 25px;
+}
+
+/*Большой заголовок, вар. 2 (флексбокс). Конец*/
+
+.products h2,
+.price-list h2 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+
+}
+
+.price-page p {
+    margin: 14px 0;
+    padding: 0 80px 0 0;
+}
+
+.item-set-content.price-page li {
+    margin: 0 0 18px;
+    line-height: 22px;
+}
+
+.price-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-list-table td {
+    width: 50%;
+    padding: 10px 17px;
+    border: 2px solid black;
+}
+
+.price-list-table td.table-price {
+    text-align: center;
+}
+
+.products-and-price,
+.about-us {
+    margin: 60px 0;
+}
+
+.left-side,
+.right-side {
     width: 460px;
 }
 
@@ -815,46 +924,14 @@ a.breadcrumbs-last  {
     float: right;
 }
 
-.products h2,
-.price-list h2 {
-    font-size: 24px;
-    line-height: 30px;
-    font-weight: bold;
-    margin: 0 0 30px 0;
+/*floated elements add, not collapse, margins with neighbour elements' margins (big header); thus the need to reduce margins size for the first header elements */
+
+.left-side > *:first-child,
+.right-side > *:first-child {
+    margin-top: 30px;
 }
 
-.item-set-content.price-page {
-    margin: 0 0 65px;
-}
-
-.item-set-content.price-page li {
-    margin: 0 0 23px;
-    line-height: 22px;
-}
-
-.about-us h2 {
-    margin: 0 0 31px 0;
-}
-
-.about-us p {
+.left-side > *:last-child,
+.right-side > *:last-child {
     margin: 0;
-}
-
-.price-list-table {
-    width: 460px;
-    height: 125px;
-    border-collapse: collapse;
-}
-
-.price-list-table td {
-    width: 50%;
-    border: 2px solid black;
-}
-
-.price-list-table td:first-child {
-    padding: 0 0 0 17px;
-}
-
-.price-list-table td.table-price {
-    text-align: center;
 }
